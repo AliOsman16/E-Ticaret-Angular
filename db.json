@@ -1,3 +1,13 @@
 {
-    "products": []
+  "products": [
+    {
+      "id": "123",
+      "name": "İphone 15 Pro",
+      "imageUrl": "https://m.media-amazon.com/images/G/41/Apple/Compchart/iPhone_15_Pro_Max._CB578161143_.png",
+      "price": 100000,
+      "stock": 15,
+      "categoryId": "233",
+      "categoryName": "Telefon"
+    }
+  ]
 }

@@ -9,6 +9,7 @@ import { appRoutes } from './app.routes';
 import { registerLocaleData } from '@angular/common';
 import localeTr from '@angular/common/locales/tr';
 import { provideHttpClient } from '@angular/common/http';
+import { provideNgxMask } from 'ngx-mask';
 
 registerLocaleData(localeTr);
 
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(appRoutes),
     { provide: LOCALE_ID, useValue: 'tr' },
-
+    provideNgxMask()
   ],
+
 };

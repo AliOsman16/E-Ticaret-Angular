@@ -1,3 +1,4 @@
+@import url("node_modules/flexi-toast/src/flexi-toast.css");
 :root {
     --primary-color: #4361ee;
 
@@ -126,7 +127,6 @@ a {
     padding-left: 2.5rem;
     font-size: var(--font-size-base);
 }
-
 .card,
 .form-container,
 .detail-card {
@@ -736,7 +736,7 @@ body.sb-toggled .fixed-footer {
 
 .form-control,
 .form-select {
-    background-color: var(--bg-color);
+    background-color: white;
     color: var(--text-color);
     border-color: var(--input-border);
     font-size: var(--base-font-size);

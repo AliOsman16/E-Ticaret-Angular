@@ -1,23 +1,37 @@
 <app-blank pageTitle="Ürünler" [breadcrumps]="[{title: 'Ürünler', url: '/products', icon: 'inventory_2'}]" />
 <flexi-grid 
     [data]="data()"
+    [loading]="loading()"
     [showCaption]="true"
     captionTitle="Ürün Listesi"
     [showExportExcelBtn]="true"
+    exportExcelFileName="Ürünler"
     language="tr"
+    fontSize="15px"
+    (onRefresh)="result.reload()"
 
 >
+    <ng-template flexiGridCaptionCommandTemplate="">
+        <flexi-button 
+            routerLink="/products/create" 
+            btnIcon="box_add"
+            btnColor="primary"
+            title="Ürün Ekle"
+            flexiTooltip/>
+    </ng-template>
+
     <flexi-grid-column field="imageUrl" title="Ürün Resmi" textAlign="center" [filterable]="false" width="50px" >
         <ng-template flexiGridCellTemplate let-item >
             <img [src]="item.imageUrl" [alt]="item.name" width="70" height="70" style="object-fit: contain;">
         </ng-template>
     </flexi-grid-column>
     <flexi-grid-column field="name" title="Ürün Adı" />
+    <flexi-grid-column field="categoryName" title="Kategori Adı" filterType="select" [filterData]="categoryFilter()"/>
     <flexi-grid-column field="price" title="Birim Fiyatı" filterType="number" textAlign="right" format="c" symbol="₺" />
     <flexi-grid-column field="stock" title="Stok Adedi" filterType="number" textAlign="right"/>
 
-    <ng-template flexiGridColumnCommandTemplate let item="">
-        <flexi-button btnIcon="edit" btnColor="info" title="Güncelle" flexiTooltip="left"/>
-        <flexi-button btnIcon="delete" btnColor="danger" title="Sil" flexiTooltip="right"/>
+    <ng-template flexiGridColumnCommandTemplate let-item="">
+        <flexi-button [routerLink]="['/','products','edit',item.id]" btnIcon="edit" btnColor="info" title="Güncelle" flexiTooltip="left"/>
+        <flexi-button (click)="delete(item.id)" btnIcon="delete" btnColor="danger" title="Sil" flexiTooltip="right"/>
     </ng-template>
 </flexi-grid>
