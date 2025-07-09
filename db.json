@@ -6,8 +6,62 @@
       "imageUrl": "https://m.media-amazon.com/images/G/41/Apple/Compchart/iPhone_15_Pro_Max._CB578161143_.png",
       "price": 100000,
       "stock": 15,
-      "categoryId": "233",
+      "categoryId": "56de",
       "categoryName": "Telefon"
+    },
+    {
+      "id": "31e2",
+      "name": "Samsung S25",
+      "imageUrl": "https://cdn.cimri.io/image/1200x1200/samsung-galaxy-s25-128gb-12gb-ram_939743719.jpg",
+      "price": 40000,
+      "stock": 20,
+      "categoryId": "56de",
+      "categoryName": "Telefon"
+    },
+    {
+      "id": "5920",
+      "name": "Huawei watch gt 5 pro",
+      "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_144987007/fee_786_587_png",
+      "price": 14000,
+      "stock": 10,
+      "categoryId": "8d21",
+      "categoryName": "Akıllı Saat"
+    },
+    {
+      "id": "b841",
+      "name": "Samsung tab s10 ultra",
+      "imageUrl": "https://cdn.vatanbilgisayar.com/Upload/PRODUCT/samsung/thumb/147395-1_large.jpg",
+      "price": 38000,
+      "stock": 10,
+      "categoryId": "0512",
+      "categoryName": "Tablet"
+    },
+    {
+      "id": "1d37",
+      "name": "Macbook pro m4",
+      "imageUrl": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mbp16-spaceblack-select-202410?wid=892&hei=820&fmt=jpeg&qlt=90&.v=Nys1UFFBTmI1T0VnWWNyeEZhdDFYamhTSEZFNjlmT2xUUDNBTjljV1BxWjZkZE52THZKR1lubXJyYmRyWWlhOXZvdUZlR0V0VUdJSjBWaDVNVG95YlBROXI4TlIyY1pzUUZwNVlXcEFNb2c",
+      "price": 120000,
+      "stock": 5,
+      "categoryId": "4ae9",
+      "categoryName": "Bilgisayar"
+    }
+  ],
+  "categories": [
+    {
+      "id": "56de",
+      "name": "Telefon"
+    },
+    {
+      "id": "4ae9",
+      "name": "Bilgisayar"
+    },
+    {
+      "id": "8d21",
+      "name": "Akıllı Saat"
+    },
+    {
+      "id": "0512",
+      "name": "Tablet"
     }
   ]
 }

@@ -28,8 +28,11 @@
     <flexi-grid-column field="name" title="Ürün Adı" />
     <flexi-grid-column field="categoryName" title="Kategori Adı" filterType="select" [filterData]="categoryFilter()"/>
     <flexi-grid-column field="price" title="Birim Fiyatı" filterType="number" textAlign="right" format="c" symbol="₺" />
-    <flexi-grid-column field="stock" title="Stok Adedi" filterType="number" textAlign="right"/>
-
+    <flexi-grid-column field="stock" title="Stok Adedi" filterType="number" textAlign="right">
+    <ng-template flexiGridCellTemplate let-item>
+        {{ item.stock }}
+    </ng-template>
+    </flexi-grid-column>
     <ng-template flexiGridColumnCommandTemplate let-item="">
         <flexi-button [routerLink]="['/','products','edit',item.id]" btnIcon="edit" btnColor="info" title="Güncelle" flexiTooltip="left"/>
         <flexi-button (click)="delete(item.id)" btnIcon="delete" btnColor="danger" title="Sil" flexiTooltip="right"/>

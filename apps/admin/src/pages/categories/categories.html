@@ -1,1 +1,25 @@
-<p>categories works!</p>
+<app-blank pageTitle="Kategoriler" [breadcrumps]="[{title: 'Kategoriler', url: '/categories', icon: 'category'}]" />
+
+<flexi-grid 
+    [data]="data()"
+    [loading]="loading()"
+    language="tr"
+    [showCaption]="true"
+    captionTitle="Kategoriler"
+    [showExportExcelBtn]="true"
+    exportExcelFileName="Kategoriler"
+    (onRefresh)="result.reload()"
+    >
+    <ng-template flexiGridCaptionCommandTemplate let-item>
+        <flexi-button [routerLink]="['/','categories','create']" btnIcon="format_list_bulleted_add" btnColor="primary" title="Ekle" flexiTooltip="left"/>
+    </ng-template>
+    
+    <flexi-grid-column field="name" title="Kategori Adı"/>
+
+    <ng-template flexiGridColumnCommandTemplate let-item>
+        <flexi-button [routerLink]="['/','categories','edit',item.id]" btnIcon="edit" btnColor="info" title="Güncelle" flexiTooltip="left"/>
+        <flexi-button (click)="delete(item.id)" btnIcon="delete" btnColor="danger" title="Sil" flexiTooltip="right"/>
+    </ng-template>
+
+
+</flexi-grid>

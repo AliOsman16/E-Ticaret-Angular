@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, httpResource } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, computed, inject, linkedSignal, resource, signal, ViewEncapsulation } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,10 +7,12 @@ import { FlexiToastService } from 'flexi-toast';
 import { NgxMaskDirective } from 'ngx-mask';
 import { lastValueFrom } from 'rxjs';
 import { initialProduct, ProductModel } from '../products';
+import { CategoryModel } from '../../categories/categories';
+import { FlexiSelectModule } from 'flexi-select';
 
 
 @Component({
-  imports: [Blank, FormsModule, NgxMaskDirective],
+  imports: [Blank, FormsModule, NgxMaskDirective, FlexiSelectModule],
   templateUrl: './product-create.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -20,14 +22,18 @@ export default class ProductCreate {
   readonly result = resource({
     params: () => this.id(),
     loader: async ()=> {
-      var res = await lastValueFrom(this.#http.get<ProductModel>(`http://localhost:3000/products/${this.id()}`))
+      var res = await lastValueFrom(this.#http.get<ProductModel>(`api/products/${this.id()}`))
       return res;
     }
-  })
-
-  readonly data = linkedSignal(() => this.result.value()?? initialProduct);
+  });
+  readonly data = linkedSignal(() => this.result.value()?? {...initialProduct});
   readonly cardTitle = computed(()=> this.id() ? "Ürün Güncelle": "Ürün Ekle");
   readonly btnName = computed(()=> this.id() ? " Güncelle": "Kaydet");
+
+
+  readonly categoryResult = httpResource<CategoryModel[]>(() => "api/categories");
+  readonly categoryData = computed(() => this.categoryResult.value() ?? []);
+  readonly categoryLoading = computed(() => this.categoryResult.isLoading());
 
   readonly #http = inject(HttpClient);
   readonly #router = inject(Router);
@@ -47,18 +53,24 @@ export default class ProductCreate {
     if(!form.valid) return;
 
     if(!this.id()){
-      this.#http.post("http://localhost:3000/products",this.data()).subscribe(()=>{
+      this.#http.post("api/products",this.data()).subscribe(()=>{
+      this.#toast.showToast("Başarılı","Ürün başarıyla eklendi.","success");
       this.#router.navigateByUrl("/products");
-      this.#toast.showToast("Başarılı","Ürün başarıyla eklendi.","success")
+      
     })
     }else{
-      this.#http.put(`http://localhost:3000/products/${this.id()}`,this.data()).subscribe(()=>{
+      this.#http.put(`api/products/${this.id()}`,this.data()).subscribe(()=>{
+      this.#toast.showToast("Başarılı","Ürün başarıyla güncellendi.","info");
       this.#router.navigateByUrl("/products");
-      this.#toast.showToast("Başarılı","Ürün başarıyla güncellendi.","info")
+      
     })
     }
+  }
 
-    
+  setCategoryName(){
+    const id = this.data().categoryId;
+    const category = this.categoryData().find(p => p.id == id);
+    this.data.update((prev) => ({...prev,categoryName:category?.name ?? ""}))
   }
  
 }

@@ -10,7 +10,9 @@ const routes: Routes = [
         loadComponent: () => import("./create/category-create")
     },
     {
-        path: "create/:id",
+        path: "edit/:id",
         loadComponent: () => import("./create/category-create")
     }
-]
+];
+
+export default routes;
