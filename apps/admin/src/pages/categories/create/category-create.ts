@@ -6,6 +6,7 @@ import Blank from 'apps/admin/src/components/blank/blank';
 import { FlexiToastService } from 'flexi-toast';
 import { CategoryModel, initialCategory } from '../categories';
 import { lastValueFrom } from 'rxjs';
+import { BreadcrumbModel } from '../../layouts/breadcrumb';
 
 @Component({
   imports: [Blank, FormsModule],
@@ -16,13 +17,18 @@ import { lastValueFrom } from 'rxjs';
 export default class CategoryCreate {
   readonly id = signal<string | undefined>(undefined);
   readonly data = computed(() => this.result.value() ?? {...initialCategory});
-  readonly cardTitle = computed(()=> this.id() ? "Kategori Güncelle": "Kategori Ekle");
+  readonly title = computed(()=> this.id() ? "Kategori Güncelle": "Kategori Ekle");
   readonly btnName = computed(()=> this.id() ? " Güncelle": "Kaydet");
+  readonly breadcrumps = signal<BreadcrumbModel[]>([
+      {title: 'Kategoriler', url: '/categories', icon: 'category'}
+    ]);
 
   readonly result = resource({
     params: () => this.id(),
     loader: async ()=> {
-      var res = await lastValueFrom(this.#http.get<CategoryModel>(`api/categories/${this.id()}`))
+      var res = await lastValueFrom(this.#http.get<CategoryModel>(`api/categories/${this.id()}`));
+      this.breadcrumps.update(prev => [...prev,
+          {title: res.name, url: `/categories/edit/${this.id()}`, icon: 'edit'}]);
       return res;
     }
   });
@@ -36,6 +42,10 @@ export default class CategoryCreate {
     this.#activate.params.subscribe((res)=>{
       if(res['id']){
         this.id.set(res['id']);
+      }else{
+        this.breadcrumps.update(prev => [...prev,
+          {title: 'Kategori Ekle', url: '/categories/create', icon: 'format_list_bulleted_add'}
+        ]);
       }
     })
   }

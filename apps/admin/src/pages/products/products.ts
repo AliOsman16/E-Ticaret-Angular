@@ -5,6 +5,7 @@ import { HttpClient, httpResource } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
 import { CategoryModel } from '../categories/categories';
+import { Error } from '../../services/error';
 
 export interface ProductModel{
   id?: string;
@@ -34,7 +35,7 @@ export const initialProduct: ProductModel = {
 export default class Products {
   readonly result = httpResource<ProductModel[]>(() => "api/products")
   readonly data = computed(() => this.result.value() ?? []);
-  readonly loading = computed(() => this.result.isLoading());
+  readonly loading = computed(() => this.result.error() ? false : this.result.isLoading());
 
   readonly categoryResult = httpResource<CategoryModel[]>(() => "api/categories");
   readonly categoryFilter = computed<FlexiGridFilterDataModel[]>(() => {
@@ -45,14 +46,18 @@ export default class Products {
   });
   readonly #toast = inject(FlexiToastService);
   readonly #http = inject(HttpClient);
+  readonly #error = inject(Error);
+
   delete(id:string){
     this.#toast.showSwal("Ürünü Sil?","Ürünü silmek istiyor musunuz?","Sil",()=>{
-      this.#http.delete(`api/products/${id}`).subscribe(res =>{
-        this.#toast.showToast("Başarılı","Ürün başarıyla silindi!","success");
-        this.result.reload();
-      })
-    })
-    
+      this.#http.delete(`api/products/${id}`).subscribe({
+        next: () =>{
+          this.#toast.showToast("Başarılı","Ürün başarıyla silindi!","success");
+          this.result.reload();
+        },
+        error: (err) => this.#error.handle(err)       
+      });
+    });
   }
 
 }

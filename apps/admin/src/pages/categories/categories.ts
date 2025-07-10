@@ -5,13 +5,14 @@ import { HttpClient, httpResource } from '@angular/common/http';
 import { ProductModel } from '../products/products';
 import { RouterLink } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
+import { Error } from '../../services/error';
 
-export interface CategoryModel{
+export interface CategoryModel {
   id?: string;
   name: string;
 }
 
-export const initialCategory: CategoryModel= {
+export const initialCategory: CategoryModel = {
   name: ""
 }
 
@@ -28,14 +29,18 @@ export default class Categories {
 
   readonly #http = inject(HttpClient);
   readonly #toast = inject(FlexiToastService);
+  readonly #error = inject(Error);
 
 
-  delete(id: string){
-    this.#toast.showSwal("Kategori Sil?", "Kategoriyi silmek istiyor musunuz?", "Sil",() => {
-      this.#http.delete(`api/categories/${id}`).subscribe(() =>{
-        this.#toast.showToast("Başarılı","Kategori başarıyla silindi!","success")
-        this.result.reload();
-      })
+  delete(id: string) {
+    this.#toast.showSwal("Kategori Sil?", "Kategoriyi silmek istiyor musunuz?", "Sil", () => {
+      this.#http.delete(`api/categories/${id}`).subscribe({
+        next: () => {
+          this.#toast.showToast("Başarılı", "Kategori başarıyla silindi!", "success");
+          this.result.reload();
+        },
+        error: (err) => this.#error.handle(err)
+      });
     }
 
     )

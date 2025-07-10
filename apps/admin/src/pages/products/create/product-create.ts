@@ -9,6 +9,7 @@ import { lastValueFrom } from 'rxjs';
 import { initialProduct, ProductModel } from '../products';
 import { CategoryModel } from '../../categories/categories';
 import { FlexiSelectModule } from 'flexi-select';
+import { BreadcrumbModel } from '../../layouts/breadcrumb';
 
 
 @Component({
@@ -22,13 +23,18 @@ export default class ProductCreate {
   readonly result = resource({
     params: () => this.id(),
     loader: async ()=> {
-      var res = await lastValueFrom(this.#http.get<ProductModel>(`api/products/${this.id()}`))
+      var res = await lastValueFrom(this.#http.get<ProductModel>(`api/products/${this.id()}`));
+      this.breadcrumps.update(prev => [...prev,
+          {title: res.name, url: `/product/edit/${this.id()}`, icon: 'box_edit'}]);
       return res;
     }
   });
   readonly data = linkedSignal(() => this.result.value()?? {...initialProduct});
-  readonly cardTitle = computed(()=> this.id() ? "Ürün Güncelle": "Ürün Ekle");
+  readonly title = computed(()=> this.id() ? "Ürün Güncelle": "Ürün Ekle");
   readonly btnName = computed(()=> this.id() ? " Güncelle": "Kaydet");
+  readonly breadcrumps = signal<BreadcrumbModel[]>([
+    {title: 'Ürünler', url: '/product', icon: 'inventory_2'}
+  ]);
 
 
   readonly categoryResult = httpResource<CategoryModel[]>(() => "api/categories");
@@ -45,6 +51,10 @@ export default class ProductCreate {
     this.#activate.params.subscribe(res =>{
       if(res["id"]){
         this.id.set(res["id"])
+      }else{
+        this.breadcrumps.update(prev => [...prev,
+          {title: 'Ürün Ekle', url: '/products/create', icon: 'box_add'}
+        ]);
       }
     })
   }
