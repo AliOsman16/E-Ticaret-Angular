@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal, ViewEncapsulation } from '@angular/core';
 import Blank from '../../components/blank/blank';
-import { BreadcrumbModel } from '../layouts/breadcrumb';
 
 @Component({
   imports: [Blank],

@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, computed, inject, linkedSignal, resource, signal, ViewEncapsulation } from '@angular/core';
 import Blank from 'apps/admin/src/components/blank/blank';
 import { lastValueFrom } from 'rxjs';
-import { initialUser, UserModel } from '../users';
+import { initialUser, UserModel } from '@shared/models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
 import { FormsModule, NgForm } from '@angular/forms';
-import Breadcrumb, { BreadcrumbModel } from '../../layouts/breadcrumb';
+import { BreadcrumbModel } from '../../layouts/breadcrumb';
 
 @Component({
   imports: [Blank, FormsModule],

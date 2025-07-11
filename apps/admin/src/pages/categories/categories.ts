@@ -2,19 +2,12 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal, ViewEncap
 import Blank from '../../components/blank/blank';
 import { FlexiGridModule } from "flexi-grid";
 import { HttpClient, httpResource } from '@angular/common/http';
-import { ProductModel } from '../products/products';
 import { RouterLink } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
-import { Error } from '../../services/error';
+import { Error } from '../../../../../library/shared/src/services/error';
+import { CategoryModel } from '@shared/models/category.model'
 
-export interface CategoryModel {
-  id?: string;
-  name: string;
-}
 
-export const initialCategory: CategoryModel = {
-  name: ""
-}
 
 @Component({
   imports: [Blank, FlexiGridModule, RouterLink],

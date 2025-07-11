@@ -5,28 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { FlexiGridModule } from 'flexi-grid';
 import { RouterLink } from '@angular/router';
 import { FlexiToastService } from 'flexi-toast';
-import { Error } from '../../services/error';
+import { Error } from '../../../../../library/shared/src/services/error';
+import { UserModel } from '@shared/models/user.model'
 
-export interface UserModel{
-  id? : string;
-  firstName: string;
-  lastName: string;
-  fullName: string;
-  userName: string;
-  email: string;
-  password: string;
-  isAdmin: boolean;
-}
-
-export const initialUser={
-  firstName: "",
-  lastName: "",
-  fullName: "",
-  userName: "",
-  email: "",
-  password: "",
-  isAdmin: "",
-}
 
 
 @Component({

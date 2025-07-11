@@ -4,7 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Blank from 'apps/admin/src/components/blank/blank';
 import { FlexiToastService } from 'flexi-toast';
-import { CategoryModel, initialCategory } from '../categories';
+import { CategoryModel, initialCategory } from '@shared/models/category.model';
 import { lastValueFrom } from 'rxjs';
 import { BreadcrumbModel } from '../../layouts/breadcrumb';
 
