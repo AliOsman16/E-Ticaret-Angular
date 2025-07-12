@@ -7,7 +7,8 @@
       "price": 100000,
       "stock": 15,
       "categoryId": "56de",
-      "categoryName": "Telefon"
+      "categoryName": "Telefon",
+      "categoryUrl": "telefon"
     },
     {
       "id": "31e2",
@@ -16,7 +17,8 @@
       "price": 40000,
       "stock": 20,
       "categoryId": "56de",
-      "categoryName": "Telefon"
+      "categoryName": "Telefon",
+      "categoryUrl": "telefon"
     },
     {
       "id": "5920",
@@ -25,7 +27,8 @@
       "price": 14000,
       "stock": 10,
       "categoryId": "8d21",
-      "categoryName": "Akıllı Saat"
+      "categoryName": "Akıllı Saat",
+      "categoryUrl": "akilli-saat"
     },
     {
       "id": "b841",
@@ -34,7 +37,8 @@
       "price": 38000,
       "stock": 10,
       "categoryId": "0512",
-      "categoryName": "Tablet"
+      "categoryName": "Tablet",
+      "categoryUrl": "tablet"
     },
     {
       "id": "1d37",
@@ -43,7 +47,8 @@
       "price": 120000,
       "stock": 5,
       "categoryId": "4ae9",
-      "categoryName": "Bilgisayar"
+      "categoryName": "Bilgisayar",
+      "categoryUrl": "bilgisayar"
     },
     {
       "id": "123",
@@ -52,7 +57,8 @@
       "price": 100000,
       "stock": 15,
       "categoryId": "56de",
-      "categoryName": "Telefon"
+      "categoryName": "Telefon",
+      "categoryUrl": "telefon"
     },
     {
       "id": "31e2",
@@ -61,7 +67,8 @@
       "price": 40000,
       "stock": 20,
       "categoryId": "56de",
-      "categoryName": "Telefon"
+      "categoryName": "Telefon",
+      "categoryUrl": "telefon"
     },
     {
       "id": "5920",
@@ -70,7 +77,8 @@
       "price": 14000,
       "stock": 10,
       "categoryId": "8d21",
-      "categoryName": "Akıllı Saat"
+      "categoryName": "Akıllı Saat",
+      "categoryUrl": "akilli-saat"
     },
     {
       "id": "b841",
@@ -79,7 +87,8 @@
       "price": 38000,
       "stock": 10,
       "categoryId": "0512",
-      "categoryName": "Tablet"
+      "categoryName": "Tablet",
+      "categoryUrl": "tablet"
     },
     {
       "id": "1d37",
@@ -88,29 +97,40 @@
       "price": 120000,
       "stock": 5,
       "categoryId": "4ae9",
-      "categoryName": "Bilgisayar"
+      "categoryName": "Bilgisayar",
+      "categoryUrl": "bilgisayar"
     }
   ],
   "categories": [
     {
       "id": "56de",
-      "name": "Telefon"
+      "name": "Telefon",
+      "url": "telefon"
     },
     {
       "id": "4ae9",
-      "name": "Bilgisayar"
+      "name": "Bilgisayar",
+      "url": "bilgisayar"
     },
     {
       "id": "8d21",
-      "name": "Akıllı Saat"
+      "name": "Akıllı Saat",
+      "url": "akilli-saat"
     },
     {
       "id": "0512",
-      "name": "Tablet"
+      "name": "Tablet",
+      "url": "tablet"
     },
     {
-      "id": "244e",
-      "name": "test"
+      "id": "794b",
+      "name": "Oyun",
+      "url": "oyun"
+    },
+    {
+      "id": "6480",
+      "name": "test",
+      "url": "test"
     }
   ],
   "users": [
@@ -123,6 +143,19 @@
       "email": "alipasli@gmail.com",
       "password": "123456",
       "isAdmin": true
+    },
+    {
+      "id": "263e",
+      "firstName": "Osman",
+      "lastName": "Paslı",
+      "fullName": "Osman Paslı",
+      "userName": "osman",
+      "email": "osman@gmail.com",
+      "password": "123456",
+      "isAdmin": false
     }
+  ],
+  "baskets": [
+    
   ]
 }

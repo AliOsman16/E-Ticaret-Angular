@@ -16,5 +16,5 @@ export const initialUser={
   userName: "",
   email: "",
   password: "",
-  isAdmin: "",
+  isAdmin: false,
 }

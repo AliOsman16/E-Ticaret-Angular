@@ -1,4 +1,5 @@
 @import url("node_modules/flexi-toast/src/flexi-toast.css");
+
 /* Reset ve genel stiller */
 * {
     margin: 0;
@@ -43,6 +44,7 @@ body {
     color: white;
     font-size: 1.8rem;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .nav-menu {
@@ -82,6 +84,16 @@ body {
 .nav-icons i:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
+}
+
+
+/* Responsive: Küçük ekranlarda select genişliği artsın */
+@media (max-width: 768px) {
+    .nav-menu .form-select {
+        width: 100%;
+        margin: 0.5rem 0 0 0;
+        font-size: 0.95rem;
+    }
 }
 
 /* Hero Section */
@@ -2108,7 +2120,7 @@ hr {
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0.5rem;
-    border-radius: 50%;
+    border-radius: 25px !important;
     position: relative;
 }
 
@@ -2143,6 +2155,8 @@ hr {
     visibility: visible;
     transform: translateY(0);
 }
+
+
 
 /* Arrow */
 .dropdown-menu::before {
@@ -3082,4 +3096,44 @@ hr {
     .dropdown-menu::before {
         right: 45px;
     }
+}
+
+.placeholder {
+    display: inline-block;
+    width: 100%;
+    background-color: currentColor;
+    opacity: 0.5;
+    border-radius: 0.25rem;
+}
+
+.placeholder-glow .placeholder {
+    animation: placeholder-glow 2s ease-in-out infinite;
+}
+
+@keyframes placeholder-glow {
+    50% {
+        opacity: 0.2;
+    }
+}
+
+.basket-icon {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.basket-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #E53935;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
 }

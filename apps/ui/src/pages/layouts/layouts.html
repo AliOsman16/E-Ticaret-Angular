@@ -1,25 +1,44 @@
 <!-- Navbar -->
 <nav class="navbar">
     <div class="nav-container">
-        <div class="nav-logo">
-            <h2>TechStore</h2>
+        <div class="nav-logo" routerLink="/" style="cursor: pointer;">
+            <h2>TechMarket</h2>
         </div>
         <ul class="nav-menu">
-            <li><a href="#" class="nav-link">Telefon</a></li>
-            <li><a href="#" class="nav-link">Laptop</a></li>
-            <li><a href="#" class="nav-link">Tablet</a></li>
-            <li><a href="#" class="nav-link">Aksesuar</a></li>
-            <li><a href="#" class="nav-link">Oyun</a></li>
+            @for (val of data().slice(0,5); track val.id){
+            <li>
+                <a [routerLink]="['/','products',val.url]" class="nav-link">{{val.name}}</a>
+            </li>
+            }@if (data().length > 1) {
+            <li class="dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Diğer</a>
+                <ul class="dropdown-menu">
+                @for (val of data().slice(5); track val.id) {
+                    <li><a class="dropdown-item">{{val.name}}</a></li>
+                }
+                </ul>
+            </li>
+}
         </ul>
         <div class="nav-icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-shopping-cart"></i>
-            <i class="fas fa-user"></i>
+            <i class="fas fa-search" title="Arama"></i>
+            <div class="basket-icon">
+                <i class="fa fa-shopping-cart"></i>
+                @if (basketCount() > 0) {
+                    <div class="basket-count">{{basketCount()}}</div>
+                }
+                
+            </div>
+            @if (user()) {
+                <i class="fa fa-sign-out" routerLink="/auth/login" (click)="logout()" title="Çıkış Yap"></i>
+            }@else {
+                <i class="fas fa-user" routerLink="/auth/login" title="Giriş Yap"></i>
+            } 
         </div>
     </div>
 </nav>
 
-<router-outlet/>
+<router-outlet />
 
 <!-- Footer -->
 <footer class="footer">

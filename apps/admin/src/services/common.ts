@@ -8,7 +8,14 @@ import { UserModel } from '@shared/models/user.model';
 export class Common {
   readonly data = signal<BreadcrumbModel[]> ([]);
   readonly user = signal<UserModel | undefined>(undefined);
-
+ 
+  constructor (){
+    const response: string | null = localStorage.getItem("response");
+    if(response){
+      this.user.set(JSON.parse(response));
+    }
+  }
+  
   set(data: BreadcrumbModel[]){
     const val: BreadcrumbModel = {
       title: "Ana Sayfa",
@@ -18,5 +25,5 @@ export class Common {
     this.data.set([val, ...data]);
   }
 
-  constructor() { }
+ 
 }

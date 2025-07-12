@@ -11,10 +11,16 @@
     (onRefresh)="result.reload()"
     >
     <ng-template flexiGridCaptionCommandTemplate let-item>
-        <flexi-button [routerLink]="['/','categories','create']" btnIcon="format_list_bulleted_add" btnColor="primary" title="Ekle" flexiTooltip="left"/>
+        <flexi-button
+          [routerLink]="['/','categories','create']"
+          btnIcon="format_list_bulleted_add"
+          btnColor="primary"
+          title="Ekle"
+          flexiTooltip="left" />
     </ng-template>
     
     <flexi-grid-column field="name" title="Kategori Adı"/>
+    <flexi-grid-column field="url" title="Kategori Url"/>
 
     <ng-template flexiGridColumnCommandTemplate let-item>
         <flexi-button [routerLink]="['/','categories','edit',item.id]" btnIcon="edit" btnColor="info" title="Güncelle" flexiTooltip="left"/>
