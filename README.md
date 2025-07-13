@@ -102,19 +102,19 @@ npx json-server --watch db.json --port 3000
 ```
 
 4. **Uygulamaları çalıştırın**
-
+  not: Farklı portlarda çalışması önemli!
 **Müşteri Arayüzü (UI):**
 ```bash
 npm run serve ui
 # veya
-nx serve ui
+nx serve ui --port 4200
 ```
 
 **Yönetici Paneli (Admin):**
 ```bash
 npm run serve admin
 # veya
-nx serve admin
+nx serve admin --port 4201
 ```
 
 ## 💻 Kullanım
@@ -130,9 +130,6 @@ nx serve admin
 
 ### Yönetici Paneli (Admin)
 - **URL**: http://localhost:4201
-- **Giriş Bilgileri**:
-  - Email: alipasli@gmail.com
-  - Şifre: 123456
 - **Özellikler**:
   - Ürün yönetimi
   - Kategori yönetimi
