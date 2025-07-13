@@ -13,27 +13,26 @@
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Diğer</a>
                 <ul class="dropdown-menu">
-                @for (val of data().slice(5); track val.id) {
+                    @for (val of data().slice(5); track val.id) {
                     <li><a class="dropdown-item">{{val.name}}</a></li>
-                }
+                    }
                 </ul>
             </li>
-}
+            }
         </ul>
         <div class="nav-icons">
-            <i class="fas fa-search" title="Arama"></i>
-            <div class="basket-icon">
+            @if (user()) {
+            <i routerLink="/orders" class="fas fa-box cursor"></i>
+            <div routerLink="/baskets" class="basket-icon cursor" style="position: relative;">
                 <i class="fa fa-shopping-cart"></i>
                 @if (basketCount() > 0) {
-                    <div class="basket-count">{{basketCount()}}</div>
+                <div class="basket-count ">{{basketCount()}}</div>
                 }
-                
             </div>
-            @if (user()) {
-                <i class="fa fa-sign-out" routerLink="/auth/login" (click)="logout()" title="Çıkış Yap"></i>
+            <i class="fa fa-sign-out" routerLink="/auth/login" (click)="logout()" title="Çıkış Yap"></i>
             }@else {
-                <i class="fas fa-user" routerLink="/auth/login" title="Giriş Yap"></i>
-            } 
+            <i class="fas fa-user" routerLink="/auth/login" title="Giriş Yap"></i>
+            }
         </div>
     </div>
 </nav>
@@ -45,7 +44,7 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>TechStore</h3>
+                <h3>TechMarket</h3>
                 <p>Teknolojinin gücünü yaşayın</p>
             </div>
             <div class="footer-section">

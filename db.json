@@ -156,6 +156,164 @@
     }
   ],
   "baskets": [
-    
+    {
+      "id": "7fe4",
+      "userId": "263e",
+      "productId": "1d37",
+      "productName": "Macbook pro m4",
+      "productImageUrl": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mbp16-spaceblack-select-202410?wid=892&hei=820&fmt=jpeg&qlt=90&.v=Nys1UFFBTmI1T0VnWWNyeEZhdDFYamhTSEZFNjlmT2xUUDNBTjljV1BxWjZkZE52THZKR1lubXJyYmRyWWlhOXZvdUZlR0V0VUdJSjBWaDVNVG95YlBROXI4TlIyY1pzUUZwNVlXcEFNb2c",
+      "productPrice": 120000,
+      "quantity": 1
+    }
+  ],
+  "orders": [
+    {
+      "id": "954f",
+      "userId": "263e",
+      "orderNumber": "TS-2025-1752391959813",
+      "date": "2025-07-13T07:32:39.813Z",
+      "fullName": "Ali Osman Paslı",
+      "phoneNumber": "5555555555",
+      "city": "ankara",
+      "district": "merkez",
+      "fullAdress": "deneme adres",
+      "cardNumber": "1584651314352131",
+      "cardOwnerName": "Ali Osman Paslı",
+      "expiresDate": "1230",
+      "cvv": "500",
+      "installmentOption": "Tek Çekim",
+      "status": "Sipariş Hazırlanıyor",
+      "baskets": [
+        {
+          "id": "2d3d",
+          "userId": "263e",
+          "productId": "123",
+          "productName": "İphone 15 Pro",
+          "productImageUrl": "https://m.media-amazon.com/images/G/41/Apple/Compchart/iPhone_15_Pro_Max._CB578161143_.png",
+          "productPrice": 100000,
+          "quantity": 1
+        },
+        {
+          "id": "3f1b",
+          "userId": "263e",
+          "productId": "5920",
+          "productName": "Huawei watch gt 5 pro",
+          "productImageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_144987007/fee_786_587_png",
+          "productPrice": 14000,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "fa56",
+      "userId": "263e",
+      "orderNumber": "TS-2025-1752392334149",
+      "date": "2025-07-13T07:38:54.149Z",
+      "fullName": "Ali Osman Paslı",
+      "phoneNumber": "5555555555",
+      "city": "istanbul",
+      "district": "merkez",
+      "fullAdress": "deneme adres",
+      "cardNumber": "2456345313215342",
+      "cardOwnerName": "Ali Osman Paslı",
+      "expiresDate": "1230",
+      "cvv": "500",
+      "installmentOption": "Tek Çekim",
+      "status": "Sipariş Hazırlanıyor",
+      "baskets": [
+        {
+          "id": "2d3d",
+          "userId": "263e",
+          "productId": "123",
+          "productName": "İphone 15 Pro",
+          "productImageUrl": "https://m.media-amazon.com/images/G/41/Apple/Compchart/iPhone_15_Pro_Max._CB578161143_.png",
+          "productPrice": 100000,
+          "quantity": 1
+        },
+        {
+          "id": "3f1b",
+          "userId": "263e",
+          "productId": "5920",
+          "productName": "Huawei watch gt 5 pro",
+          "productImageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_144987007/fee_786_587_png",
+          "productPrice": 14000,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "d5eb",
+      "userId": "263e",
+      "orderNumber": "TS-2025-1752392804832",
+      "date": "2025-07-13T07:46:44.832Z",
+      "fullName": "Ali Osman Paslı",
+      "phoneNumber": "5555555555",
+      "city": "izmir",
+      "district": "merkez",
+      "fullAdress": "deneme adres",
+      "cardNumber": "5445464564564564",
+      "cardOwnerName": "Ali Osman Paslı",
+      "expiresDate": "1127",
+      "cvv": "500",
+      "installmentOption": "Tek Çekim",
+      "status": "Sipariş Hazırlanıyor",
+      "baskets": [
+        {
+          "id": "2d3d",
+          "userId": "263e",
+          "productId": "123",
+          "productName": "İphone 15 Pro",
+          "productImageUrl": "https://m.media-amazon.com/images/G/41/Apple/Compchart/iPhone_15_Pro_Max._CB578161143_.png",
+          "productPrice": 100000,
+          "quantity": 1
+        },
+        {
+          "id": "3f1b",
+          "userId": "263e",
+          "productId": "5920",
+          "productName": "Huawei watch gt 5 pro",
+          "productImageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_144987007/fee_786_587_png",
+          "productPrice": 14000,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "9d97",
+      "userId": "263e",
+      "orderNumber": "TS-2025-1752392885546",
+      "date": "2025-07-13T07:48:05.546Z",
+      "fullName": "Ali Osman Paslı",
+      "phoneNumber": "5555555555",
+      "city": "kayseri",
+      "district": "merkez",
+      "fullAdress": "deneme adres",
+      "cardNumber": "4555555555555555",
+      "cardOwnerName": "Ali Osman Paslı",
+      "expiresDate": "3454",
+      "cvv": "500",
+      "installmentOption": "Tek Çekim",
+      "status": "Sipariş Hazırlanıyor",
+      "baskets": [
+        {
+          "id": "2d3d",
+          "userId": "263e",
+          "productId": "123",
+          "productName": "İphone 15 Pro",
+          "productImageUrl": "https://m.media-amazon.com/images/G/41/Apple/Compchart/iPhone_15_Pro_Max._CB578161143_.png",
+          "productPrice": 100000,
+          "quantity": 1
+        },
+        {
+          "id": "3f1b",
+          "userId": "263e",
+          "productId": "5920",
+          "productName": "Huawei watch gt 5 pro",
+          "productImageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_144987007/fee_786_587_png",
+          "productPrice": 14000,
+          "quantity": 1
+        }
+      ]
+    }
   ]
 }

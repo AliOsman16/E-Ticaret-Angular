@@ -34,6 +34,7 @@ export default class Login {
           const user = res[0];
           localStorage.setItem("response",JSON.stringify(user));
           this.#common.user.set(user);
+          this.#common.getBasketCount();
           this.#router.navigateByUrl("/")
         },
         error: (err) => this.#error.handle(err)

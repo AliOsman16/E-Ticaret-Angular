@@ -23,11 +23,15 @@ export class Common {
   }
 
   getBasketCount(){
-    this.#http.get<BasketModel[]>("api/baskets").subscribe({
+    if(this.user()){
+      const endpoint = `api/baskets?userId=${this.user()?.id}`
+      this.#http.get<BasketModel[]>(endpoint).subscribe({
       next:(res) =>{
         this.basketCount.set(res.length);
       },
       error: (err) => this.#error.handle(err)
-    })
+    });
+    }
+    
   }
 }

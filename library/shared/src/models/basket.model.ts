@@ -1,14 +1,9 @@
 export interface BasketModel{
     id?: string;
+    userId: string;
     productId: string;
     productName: string;
-    price: number;
+    productImageUrl: string;
+    productPrice: number;
     quantity: number;
-}
-
-export const initialBasket: BasketModel= {
-    productId: "",
-    productName: "",
-    price: 0,
-    quantity: 1
 }
