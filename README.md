@@ -102,7 +102,7 @@ npx json-server --watch db.json --port 3000
 ```
 
 4. **Uygulamaları çalıştırın**
-  not: Farklı portlarda çalışması önemli!
+
 **Müşteri Arayüzü (UI):**
 ```bash
 npm run serve ui
